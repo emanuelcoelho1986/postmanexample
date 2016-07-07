@@ -9,7 +9,8 @@ import postmanexample.models.vehicle.Vehicle;
  *
  * @author emanuelcoelho
  */
-public class Postman extends Person implements Runnable{
+public class Postman extends Person implements Runnable {
+
     /**
      * For Logging purposes
      */
@@ -24,9 +25,15 @@ public class Postman extends Person implements Runnable{
     public Postman() {
         super();
     }
-    
-    public void deliverMail(){
-        
+
+    public void deliverMail() {
+        try {
+            long predictDeliveryTime = vehicle.predictDeliveryTime(mail);
+            Thread.sleep(predictDeliveryTime);
+            System.out.println("--- Postman: " + this + " DELIVERED Mail: " + getMail() + " by " + getVehicle());
+        } catch (Exception e) {
+            System.out.println("Postman died.... =/");
+        }
     }
 
     /**
@@ -41,32 +48,32 @@ public class Postman extends Person implements Runnable{
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Vehicle getVehicle() {
         return vehicle;
     }
 
     /**
-     * 
-     * @param vehicle 
+     *
+     * @param vehicle
      */
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Mail getMail() {
         return mail;
     }
 
     /**
-     * 
-     * @param mail 
+     *
+     * @param mail
      */
     public void setMail(Mail mail) {
         this.mail = mail;
@@ -74,6 +81,7 @@ public class Postman extends Person implements Runnable{
 
     @Override
     public void run() {
+        System.out.println(super.toString() + " start mail route");
         deliverMail();
     }
 

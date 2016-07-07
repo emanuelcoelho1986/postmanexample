@@ -12,7 +12,7 @@ import postmanexample.models.delivery.Mail;
  *
  * @author emanuelcoelho
  */
-public abstract class Vehicle {
+public class Vehicle {
 
     public static final Integer SPEED_PER_MILE = 10;
     private static final Logger LOG = Logger.getLogger(Vehicle.class.getName());
@@ -22,7 +22,9 @@ public abstract class Vehicle {
     public Vehicle() {
     }
     
-    public abstract int predictDeliveryTime(Mail mail);
+    public long predictDeliveryTime(Mail mail){
+        return Math.round((mail.getSize()*mail.getWeigth())/Vehicle.SPEED_PER_MILE)*1000;
+    }
 
     /**
      *
@@ -48,4 +50,8 @@ public abstract class Vehicle {
         this.speed = speed;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName()+"{" + "speed=" + speed + '}';
+    }
 }

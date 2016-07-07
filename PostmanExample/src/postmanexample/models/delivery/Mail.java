@@ -9,6 +9,7 @@ import postmanexample.models.Person;
  * @author emanuelcoelho
  */
 public class Mail {
+
     private static final Logger LOG = Logger.getLogger(Address.class.getName());
 
     private Double weigth;
@@ -20,12 +21,12 @@ public class Mail {
     private String description;
 
     /**
-     * 
+     *
      * @param weigth
      * @param size
      * @param receiver
      * @param carrier
-     * @param description 
+     * @param description
      */
     public Mail(Double weigth, Double size, Person receiver, Person carrier, String description) {
         this.weigth = weigth;
@@ -36,83 +37,87 @@ public class Mail {
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Double getWeigth() {
         return weigth;
     }
 
     /**
-     * 
-     * @param weigth 
+     *
+     * @param weigth
      */
     public void setWeigth(Double weigth) {
         this.weigth = weigth;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Double getSize() {
         return size;
     }
 
     /**
-     * 
-     * @param size 
+     *
+     * @param size
      */
     public void setSize(Double size) {
         this.size = size;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Person getReceiver() {
         return receiver;
     }
 
     /**
-     * 
-     * @param receiver 
+     *
+     * @param receiver
      */
     public void setReceiver(Person receiver) {
         this.receiver = receiver;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public Person getCarrier() {
         return carrier;
     }
 
     /**
-     * 
-     * @param carrier 
+     *
+     * @param carrier
      */
     public void setCarrier(Person carrier) {
         this.carrier = carrier;
     }
 
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * 
-     * @param description 
+     *
+     * @param description
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Mail{" + "weigth=" + weigth + ", size=" + size + ", receiver=" + receiver + ", carrier=" + carrier + ", description=" + description + '}';
+    }
 }

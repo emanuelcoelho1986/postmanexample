@@ -25,6 +25,7 @@ public class PostOffice extends Office{
         // For the example I did 3 on purpose to have 3 to 3
         for (Mail mail : getMails()) {
             mail.setCarrier(getPostmans().get(getMails().indexOf(mail)));
+            getPostmans().get(getMails().indexOf(mail)).setMail(mail);
         }
         
     }
@@ -35,6 +36,9 @@ public class PostOffice extends Office{
     
     public void initDelivery(){
         // Init the delivery system
+        for (Postman postman : getPostmans()) {
+            new Thread(postman).start();
+        }
     }
 
     public List<Mail> getMails() {

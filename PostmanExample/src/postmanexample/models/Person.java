@@ -37,4 +37,9 @@ public class Person extends Human {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

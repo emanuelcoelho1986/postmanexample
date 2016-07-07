@@ -9,6 +9,8 @@ import postmanexample.models.Person;
 import postmanexample.models.Postman;
 import postmanexample.models.building.PostOffice;
 import postmanexample.models.delivery.Mail;
+import postmanexample.models.vehicle.Bike;
+import postmanexample.models.vehicle.Car;
 
 /**
  *
@@ -31,6 +33,7 @@ public class PostmanExample {
         postOffice.setMails(getMails());
         
         postOffice.assignPostMansToMail();
+        postOffice.initDelivery();
 
         System.out.println("Post Office: "+postOffice);
     }
@@ -41,6 +44,10 @@ public class PostmanExample {
         Postman postman1 = new Postman("Postmane", "1", Gender.MAlE);
         Postman postman2 = new Postman("Postmane", "2", Gender.FEMALE);
         Postman postman3 = new Postman("Postmane", "3", Gender.MAlE);
+        
+        postman1.setVehicle(new Bike(12.0));
+        postman2.setVehicle(new Bike(20.4));
+        postman3.setVehicle(new Car(120.0));
 
         postmans.add(postman1);
         postmans.add(postman2);
