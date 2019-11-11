@@ -1,4 +1,4 @@
-# postmanexample
+# Postman Example
 This is an example of a Java Project
 
 #### Main objective of the application
